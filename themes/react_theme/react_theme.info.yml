@@ -1,0 +1,7 @@
+name: 'React Theme'
+type: theme
+description: 'A custom theme with React integration.'
+core_version_requirement: ^10
+base theme: claro
+libraries:
+  - react_theme/react_app

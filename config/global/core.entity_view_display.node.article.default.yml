@@ -1,0 +1,30 @@
+uuid: 2f98d418-873e-4349-98a4-b94e7f9570f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+    - node.type.article
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: br6izr-iGEu--JvNbCJNtOBpRnxpFLXfoV5y61U9Nqc
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

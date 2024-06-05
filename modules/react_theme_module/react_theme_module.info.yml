@@ -1,0 +1,6 @@
+name: 'React Theme Module'
+type: module
+description: 'A module to integrate React components in Drupal blocks.'
+core_version_requirement: ^10
+dependencies:
+  - drupal:block

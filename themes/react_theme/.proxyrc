@@ -1,0 +1,7 @@
+{
+  "**": {
+    "target": "https://react-in-drupal.lndo.site/",
+    "changeOrigin": true,
+    "xfwd": true
+  }
+}

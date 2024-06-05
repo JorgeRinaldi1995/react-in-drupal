@@ -1,0 +1,25 @@
+uuid: 8c7d11c2-1007-4969-b894-7c129f1c397a
+langcode: en
+status: true
+dependencies:
+  module:
+    - react_theme_module
+    - system
+  theme:
+    - react_theme
+id: react_theme_reactblock
+theme: react_theme
+region: content
+weight: 0
+provider: null
+plugin: react_block
+settings:
+  id: react_block
+  label: 'React block'
+  label_display: '0'
+  provider: react_theme_module
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /ovo
