@@ -37,6 +37,14 @@ const config = {
                         ].filter(Boolean),
                     }
                 },
+            },
+            {
+                test: /\.scss$/, // target .scss files
+                    use: [
+                    'style-loader', // injects CSS into the DOM
+                    'css-loader',   // interprets `@import` and `url()` like `import/require()` and will resolve them
+                    'sass-loader'   // loads a Sass/SCSS file and compiles it to CSS
+                ]
             }
         ],
     },

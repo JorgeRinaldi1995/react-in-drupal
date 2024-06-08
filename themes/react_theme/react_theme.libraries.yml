@@ -2,11 +2,11 @@
 react_app:
   version: VERSION
   js:
-    js/dist_dev/main.min.js: {minified: true}
+    js/dist_dev/main.min.js: { minified: true }
   dependencies:
-    - core/drupal
-    - core/jquery
-    - core/drupalSettings
+      - core/drupal
+      - core/jquery
+      - core/drupalSettings
 
 # Include development mode React app assets compiled by a JavaScript toolchain.
 # @see react_theme_page_attachments_alter() in
