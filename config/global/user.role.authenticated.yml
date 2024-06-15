@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.recipe
   module:
     - comment
     - contact
     - file
     - filter
+    - node
     - search
     - shortcut
     - system
@@ -23,8 +25,16 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'create recipe content'
+  - 'delete any recipe content'
   - 'delete own files'
+  - 'delete own recipe content'
+  - 'delete recipe revisions'
+  - 'edit any recipe content'
+  - 'edit own recipe content'
   - 'post comments'
+  - 'revert recipe revisions'
   - 'search content'
   - 'skip comment approval'
   - 'use text format basic_html'
+  - 'view recipe revisions'

@@ -13,3 +13,14 @@ function react_theme_page_attachments_alter(array &$attachments) {
     $attachments['#attached']['library'][$index] = 'react_theme/react_app_dev';
   }
 }
+
+/**
+ * Implements hook_node_insert().
+ */
+/* function react_theme_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  dd($entity);
+if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'recipe') {
+  // Log an informational message when a new article node is created.
+  \Drupal::logger('my_custom_module')->info('A new article node has been created with the title: @title', ['@title' => $entity->getTitle()]);
+}
+} */

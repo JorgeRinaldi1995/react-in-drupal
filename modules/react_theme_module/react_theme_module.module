@@ -1,0 +1,70 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\file\Entity\File;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+
+/**
+ * Implements hook_node_presave().
+ */
+function react_theme_module_node_presave(NodeInterface $node) {
+  // Check if the content type is 'recipe'.
+  if ($node->bundle() == 'recipe' && $node->hasField('field_image')) {
+    // Get the logger service.
+    $logger = \Drupal::service('logger.factory')->get('react_theme_module');
+
+    // Get the field_image value.
+    $field_image = $node->get('field_image')->getValue();
+
+    // Initialize an array to hold image details.
+    $image_details = [];
+
+    // Get the file URL generator service.
+    $file_url_generator = \Drupal::service('file_url_generator');
+
+    // Loop through each image item.
+    foreach ($field_image as $image_item) {
+      if (isset($image_item['target_id'])) {
+        // Load the file entity using the target_id.
+        $file = File::load($image_item['target_id']);
+        if ($file) {
+          // Get the file details.
+          $file_uri = $file->getFileUri();
+          $file_url = $file_url_generator->generateAbsoluteString($file_uri);
+          $file_mime_type = $file->getMimeType();
+          $file_size = $file->getSize();
+          $file_name = $file->getFilename();
+
+          // Add all the file details to the array.
+          $image_details[] = [
+            'target_id' => $image_item['target_id'],
+            'uri' => $file_uri,
+            'url' => $file_url,
+            'mime_type' => $file_mime_type,
+            'size' => $file_size,
+            'filename' => $file_name,
+            'alt' => $image_item['alt'] ?? null,
+            'title' => $image_item['title'] ?? null,
+            'width' => $image_item['width'] ?? null,
+            'height' => $image_item['height'] ?? null,
+          ];
+        }
+      } elseif (isset($image_item['value']) && strpos($image_item['value'], 'data:image/') === 0) {
+        // Check if the image data is in base64 format.
+        $base64_data = $image_item['value'];
+        $image_details[] = [
+          'base64' => true,
+          'data' => $base64_data,
+        ];
+      }
+    }
+
+    // Encode the image details as JSON.
+    $image_details_json = json_encode($image_details, JSON_PRETTY_PRINT);
+
+    // Log the image details.
+    $logger->info('Recipe node is being saved with the following field_image details: @image_details', [
+      '@image_details' => $image_details_json,
+    ]);
+  }
+}

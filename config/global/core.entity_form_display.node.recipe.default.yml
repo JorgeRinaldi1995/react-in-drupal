@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.recipe.body
+    - field.field.node.recipe.field_image
     - field.field.node.recipe.field_ingredients
+    - image.style.thumbnail
     - node.type.recipe
   module:
+    - image
     - path
     - text
 id: node.recipe.default
@@ -29,6 +32,14 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 123
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_ingredients:
     type: entity_reference_autocomplete

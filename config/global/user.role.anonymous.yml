@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - node.type.recipe
   module:
     - comment
     - contact
     - filter
+    - node
     - search
     - system
 _core:
@@ -20,5 +22,13 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'create recipe content'
+  - 'delete any recipe content'
+  - 'delete own recipe content'
+  - 'delete recipe revisions'
+  - 'edit any recipe content'
+  - 'edit own recipe content'
+  - 'revert recipe revisions'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view recipe revisions'
