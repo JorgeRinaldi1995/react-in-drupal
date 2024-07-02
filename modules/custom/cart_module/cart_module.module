@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function cart_module_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cart_module':
+      return '<p>' . t('This module allows users to add products to a cart.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cart_module_theme($existing, $type, $theme, $path) {
+    return [
+      'cart_page' => [
+        'variables' => ['items' => NULL],
+      ],
+    ];
+  }
+  

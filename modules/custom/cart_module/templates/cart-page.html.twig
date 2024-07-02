@@ -1,0 +1,10 @@
+<h2>Your Cart</h2>
+{% if items %}
+  <ul>
+  {% for item in items %}
+    <li>Product ID: {{ item.product_id }}, Quantity: {{ item.quantity }}</li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>Your cart is empty.</p>
+{% endif %}

@@ -1,0 +1,15 @@
+cart_module.add_to_cart:
+  path: '/cart/add/{product_id}'
+  defaults:
+    _controller: '\Drupal\cart_module\Controller\CartController::addToCart'
+    _title: 'Add to Cart'
+  requirements:
+    _permission: 'access content'
+
+cart_module.cart:
+  path: '/cart'
+  defaults:
+    _controller: '\Drupal\cart_module\Controller\CartController::viewCart'
+    _title: 'Cart'
+  requirements:
+    _permission: 'access content'

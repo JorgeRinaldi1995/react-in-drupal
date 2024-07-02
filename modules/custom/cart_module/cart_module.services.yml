@@ -1,0 +1,7 @@
+services:
+  cart_module.cart_service:
+    class: Drupal\cart_module\Service\CartService
+    arguments: ['@current_user', '@session']
+  cart_module.product_quantity_form:
+    class: Drupal\cart_module\Form\ProductQuantityForm
+    arguments: ['@current_user']

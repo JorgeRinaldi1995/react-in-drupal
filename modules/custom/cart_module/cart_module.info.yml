@@ -1,0 +1,7 @@
+name: 'Cart Module'
+type: module
+description: 'A module to add products to a cart'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:node
